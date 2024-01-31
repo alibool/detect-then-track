@@ -61,6 +61,8 @@ Run `python tracking/ants_loc_diam.py`.
 
 After the three steps, we can get a csv file that contains the (transformed) center point and the diameter information of both baseline and follow-up scans.
 
+For tracking accuracy, run `python tracking/tracking_acc.py`.
+
 ### Overall RECIST accuracy
 After the detection and the tracking steps, we calculated the sum of the diameter of both target lesions and non-target lesions and the RECIST outcome in a comprehensive manner as follows:
 
