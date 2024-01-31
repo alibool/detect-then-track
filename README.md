@@ -59,3 +59,28 @@ Run `python tracking/ants_loc_diam.py`.
 | `image_path` | base directory for the transformed CT scans |
 | `baseline_path` | the original predicted baseline (baseline is the fixed one, so it would not be transformed by ANTs) |
 
+After the three steps, we can get a csv file that contains the (transformed) center point and the diameter information of both baseline and follow-up scans.
+
+### Overall RECIST accuracy
+After the detection and the tracking steps, we calculated the sum of the diameter of both target lesions and non-target lesions and the RECIST outcome in a comprehensive manner as follows:
+
+1. In the baseline assessment, lesions with a diameter greater than 10 mm are considered as target lesions. If there exist more than two target lesions, the two lesions with the largest diameters will be selected, while the remaining lesions will be categorized as non-target lesions.
+2. In the follow-up measurements, the target lesion(s) selected in the baseline are longitudinally tracked according to the Euclidean distance between baseline-follow-up lesion center points after registration with a threshold of 30 mm. If more than one lesion is within the threshold, the lesion with the smallest distance will be selected. After iterative greedy search, a series of longitudinally paired target lesions can be obtained.
+3. Calculate the SOD of both target and non-target lesions respectively in baseline and follow-up scans. For the target lesion, 20% increase in SOD is considered progression, 30% decrease. For the non-target lesion, 20% increase is deemed unequivocal progression, others are all considered non-progression. The final RECIST outcome combines the results of both target and non-target lesions with the match-up rule shown below.
+
+| Target Lesion |	Non-Target Lesion |	RECIST Outcome |
+| ------------- | ------------- | ------------- |
+| Response | Non-progression	| Response |
+| Stable	| Non-progression	| Stable |
+| Response	| Progression	| Progression |
+| Stable	| Progression	Progression |
+| Progression	| Non-progression	Progression |
+| Progression	| Progression	Progression |
+
+In implementation, we first generate a file for the SOD of target / non-target lesions.
+
+For ground truth, run: `python overall_acc/recist_gt.py`.
+
+For predictions, run: `python overall_acc/recist_pred.py`.
+
+Then run `python overall_acc/recist_final.py`.
