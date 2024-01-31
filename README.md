@@ -9,5 +9,6 @@ In lesion detection step, [nnDetection](https://github.com/MIC-DKFZ/nnDetection)
 
 ### Baseline-follow-up registration
 
-Advanced Normalization Tools [ANTs](https://github.com/ANTsX/ANTsPy) were adopted. Besides, we compared the registration performances under three scenarios: without registration, non-deformable rigid registration, and deformable [DEEDS](https://github.com/mattiaspaul/deedsBCV) registration. 
+Advanced Normalization Tools [(ANTs)](https://github.com/ANTsX/ANTsPy) were adopted. Besides, we compared the registration performances under three scenarios: without registration, non-deformable rigid registration, and deformable [DEEDS](https://github.com/mattiaspaul/deedsBCV) registration. 
 
+### 
