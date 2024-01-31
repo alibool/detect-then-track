@@ -73,9 +73,9 @@ After the detection and the tracking steps, we calculated the sum of the diamete
 | Response | Non-progression	| Response |
 | Stable	| Non-progression	| Stable |
 | Response	| Progression	| Progression |
-| Stable	| Progression	Progression |
-| Progression	| Non-progression	Progression |
-| Progression	| Progression	Progression |
+| Stable	| Progression	| Progression |
+| Progression	| Non-progression	| Progression |
+| Progression	| Progression	| Progression |
 
 In implementation, we first generate a file for the SOD of target / non-target lesions.
 
