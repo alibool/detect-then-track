@@ -86,3 +86,6 @@ For ground truth, run: `python overall_acc/recist_gt.py`.
 For predictions, run: `python overall_acc/recist_pred.py`.
 
 Then run `python overall_acc/recist_final.py`.
+
+## Pretrained Models
+The pretrained models can be found on the release page.
